@@ -1,0 +1,17 @@
+language: php
+
+cache:
+  directories:
+    - vendor
+    - $HOME/.composer/cache
+
+php:
+  - '5.6'
+  - '7.1'
+  - '7.2'
+
+install: composer update
+
+script:
+  - ./vendor/bin/phpcs . --standard=phpcs.ruleset.xml
+  - ./vendor/bin/phpunit

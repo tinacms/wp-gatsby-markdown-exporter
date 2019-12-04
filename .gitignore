@@ -1,0 +1,3 @@
+#checkout https://github.com/benbalter/wordpress-to-jekyll-exporter/blob/master/.gitignore
+composer.lock
+vendor/

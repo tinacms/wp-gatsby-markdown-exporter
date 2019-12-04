@@ -1,0 +1,35 @@
+{
+    "name": "tinacms/wp-gatsby-exporter",
+    "type": "wordpress-plugin",
+    "license": "GPL-3.0-or-later",
+    "description": "Export WordPress content to Markdown for GatsbyJS.",
+    "authors": [
+        {
+            "name": "Mitch MacKenzie",
+            "email": "mitch@forestry.io"
+        }
+    ],
+    "keywords": [
+        "wordpress",
+        "gatsby",
+        "markdown"
+    ],
+    "autoload": {
+        "classmap": [
+            "src/"
+        ]
+    },
+    "require": {
+        "symfony/yaml": "^3.4",
+        "league/html-to-markdown": "^4.8",
+        "symfony/filesystem": "^3.4.32",
+        "composer/installers": "^1.7",
+        "wp-cli/wp-cli-bundle": "^2.3"
+    },
+    "require-dev": {
+        "dealerdirect/phpcodesniffer-composer-installer": "^0.5.0",
+        "wp-coding-standards/wpcs": "^2.1",
+        "phpcompatibility/phpcompatibility-wp": "*",
+        "phpunit/phpunit": "^5"
+    }
+}
