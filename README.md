@@ -16,18 +16,10 @@ Want to build real-time editing into your Gatsby site? Checkout [TinaCMS](https:
     ./vendor/bin/wp gatsby-export --directory=/example/gatsby-starter/src/content
 
 ## Installation Methods
-### Composer require (Recommended)
-  Make sure you have [Composer installed](https://getcomposer.org/doc/00-intro.md) and navigate to the WordPress site directory, then:
-
-    composer require tinacms/wp-gatsby-exporter
-
 ### Git clone + Composer
 Or clone this repository into wp-content/plugins, then navigate to the `wp-gatsby-exporter` directory:
 
     composer install
-
-### Download zip file (Easiest)
-Download the [latest release](https://github.com/tinacms/wp-gatsby-exporter/releases/latest) and unzip the file into wp-content/plugins.
 
 ## Enable the plugin
 Activate "WordPress to Gatsby Exporter" from the WordPress admin.
