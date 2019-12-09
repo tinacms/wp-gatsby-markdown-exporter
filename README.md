@@ -3,6 +3,8 @@ A command line WordPress plugin to export WordPress content to Markdown for use 
 
 Want to build real-time editing into your Gatsby site? Checkout [TinaCMS](https://tinacms.org/)!
 
+[![travis ci build status](https://travis-ci.org/tinacms/wp-gatsby-exporter.svg?branch=master)](https://travis-ci.org/tinacms/wp-gatsby-exporter)
+
 ## Features
 
   - Move WordPress content to Gatsby-friendly Markdown.
