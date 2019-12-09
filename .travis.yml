@@ -2,7 +2,6 @@ language: php
 
 cache:
   directories:
-    - vendor
     - $HOME/.composer/cache
 
 php:
@@ -15,3 +14,20 @@ install: composer update
 script:
   - ./vendor/bin/phpcs . --standard=phpcs.ruleset.xml
   - ./vendor/bin/phpunit
+  
+before_deploy:
+- rm -rf vendor
+- rm -rf .git
+- composer install --no-dev
+- rm composer.lock
+- zip -r wp-gatsby-exporter.zip .
+
+deploy:
+  - provider: releases
+    api_key: $GH_TOKEN
+    file: wp-gatsby-exporter.zip
+    skip_cleanup: true
+    overwrite: true
+    on:
+      tags: true
+      php: '7.2'
