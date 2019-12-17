@@ -91,19 +91,19 @@
 
 		<div class="form-field">
 			<label id="fields_to_exclude_label" for="fields_to_exclude" class="form-block"><?php print esc_html__( 'Exclude fields' ); ?></label>
-			<textarea id="fields_to_exclude" aria-labelledby="fields_to_exclude_label" aria-describedby="fields_to_exclude_desc"></textarea>
+			<textarea id="fields_to_exclude" name="fields_to_exclude" aria-labelledby="fields_to_exclude_label" aria-describedby="fields_to_exclude_desc"></textarea>
 			<small id="fields_to_exclude_desc" class="form-block"><?php print esc_html__( 'One per line. List front matter fields that should not be exported.' ); ?></small>
 		</div>
 
 		<div class="form-field">
 			<label id="remap_fields_label" for="remap_fields" class="form-block"><?php print esc_html__( 'Change field name' ); ?></label>
-			<textarea id="remap_fields" aria-labelledby="remap_fields_label" aria-describedby="remap_fields_desc"></textarea>
+			<textarea id="remap_fields" name="remap_fields" aria-labelledby="remap_fields_label" aria-describedby="remap_fields_desc"></textarea>
 			<small id="remap_fields_desc" class="form-block"><?php print esc_html__( 'One per line. Modify the field name that is exported, format: old_name,new_name' ); ?></small>
 		</div>
 
 		<div class="form-field">
 			<label id="fields_to_array_label" for="fields_to_array" class="form-block"><?php print esc_html__( 'Convert fields to array' ); ?></label>
-			<textarea id="fields_to_array" aria-labelledby="fields_to_array_label" aria-describedby="fields_to_array_label_desc"></textarea>
+			<textarea id="fields_to_array" name="fields_to_array" aria-labelledby="fields_to_array_label" aria-describedby="fields_to_array_label_desc"></textarea>
 			<small id="fields_to_array_label_desc" class="form-block"><?php print esc_html__( 'One per line. Front matter fields that will be converted to a single value list.' ); ?></small>
 		</div>
 

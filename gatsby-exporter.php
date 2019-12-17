@@ -224,18 +224,18 @@ function gatsby_export_prepare_exporter( $exporter ) {
 	}
 
 	if ( isset( $_POST['fields_to_markdown'] ) ) {
-		$markdown_fields = explode( PHP_EOL, $_POST['fields_to_markdown'] );
+		$markdown_fields = preg_split( '/\r\n|\r|\n/', $_POST['fields_to_markdown'] );
 		$exporter->set_fields_to_markdown( $markdown_fields );
 	}
 
 	if ( isset( $_POST['fields_to_exclude'] ) ) {
-		$exclude_fields = explode( PHP_EOL, $_POST['fields_to_exclude'] );
+		$exclude_fields = preg_split( '/\r\n|\r|\n/', $_POST['fields_to_exclude'] );
 		$exporter->set_excluded_front_matter( $exclude_fields );
 	}
 
 	if ( isset( $_POST['remap_fields'] ) ) {
 		$remap_fields = array();
-		$sets         = explode( PHP_EOL, $_POST['remap_fields'] );
+		$sets         = preg_split( '/\r\n|\r|\n/', $_POST['remap_fields'] );
 		foreach ( $sets as $set ) {
 			$remap                             = explode( ',', $set );
 			$remap_fields[ trim( $remap[0] ) ] = trim( $remap[1] );
@@ -244,7 +244,7 @@ function gatsby_export_prepare_exporter( $exporter ) {
 	}
 
 	if ( isset( $_POST['fields_to_array'] ) ) {
-		$array_fields = explode( $_POST['fields_to_array'] );
+		$array_fields = preg_split( '/\r\n|\r|\n/', $_POST['fields_to_array'] );
 		$exporter->set_fields_to_array( $array_fields );
 	}
 
