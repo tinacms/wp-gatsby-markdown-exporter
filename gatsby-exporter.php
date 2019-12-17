@@ -180,6 +180,7 @@ function gatsby_export_admin_export() {
 
 	ob_end_clean();
 	gatsby_export_send_zip( $zip_file );
+	gatsby_export_cleanup( $directory, $zip_file );
 	exit;
 }
 
@@ -297,4 +298,17 @@ function gatsby_export_send_zip( $zip ) {
 	flush();
 	// phpcs:disable WordPress.WP.AlternativeFunctions.file_system_read_readfile
 	readfile( $zip );
+}
+
+/**
+ * Cleanup the created files.
+ *
+ * @param string $directory directory with raw markdown export.
+ * @param string $zip_file path to zip file.
+ */
+function gatsby_export_cleanup( $directory, $zip_file ) {
+	global $wp_filesystem;
+
+	$wp_filesystem->delete( $directory, true );
+	$wp_filesystem->delete( $zip_file );
 }
