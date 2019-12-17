@@ -20,6 +20,8 @@ A zip file of Markdown posts and associated images will be downloaded after subm
 
 After extracting the files from the export zip, you can place the files in the content directory of the Gatsby site.
 
+> Reminder: always keep a backup of the WordPress database and files in case your export doesn't work as expected!
+
 Checkout the [WP-CLI command](#command-line-usage) to run the export from your command line to avoid PHP timeouts!
 
 ## Installation Methods (choose one)
