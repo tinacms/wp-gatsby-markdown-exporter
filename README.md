@@ -5,11 +5,13 @@ Want to build real-time editing into your Gatsby site? Checkout [TinaCMS](https:
 
 [![travis ci build status](https://travis-ci.org/tinacms/wp-gatsby-exporter.svg?branch=master)](https://travis-ci.org/tinacms/wp-gatsby-exporter)
 
+![WordPress to Gatsby Exporter and TinaCMS](docs/wp-gatsby-exporter-tina.jpg)
+
 ## Features
 
   - Move WordPress content to Gatsby-friendly Markdown.
   - Customize the export! Remap and restructure exported fields.
-  - CLI: Avoid PHP timeouts by using the command line with WP-CLI (included).
+  - CLI: Avoid PHP timeouts by using the command line with WP-CLI.
   - CLI: Export progress bar (great for large sites)!
 
 ## Usage
