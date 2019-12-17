@@ -172,6 +172,7 @@ class Gatsby_Exporter {
 	 */
 	protected function prepare_directories() {
 		global $wp_filesystem;
+		WP_Filesystem();
 
 		// @TODO: should this be removed for permalinks/slugs to work?
 		foreach ( $this->post_types as $type ) {
@@ -331,7 +332,7 @@ class Gatsby_Exporter {
 	protected function write_file( $content, $destination ) {
 		global $wp_filesystem;
 
-		$wp_filesystem->mkdir( dirname( $destination ) );
+		wp_mkdir_p( dirname( $destination ) );
 		$wp_filesystem->put_contents( $destination, $content );
 	}
 
