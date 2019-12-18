@@ -92,6 +92,10 @@ class Gatsby_Exporter_CLI extends WP_CLI_Command {
 			$exporter->set_enforce_charset( false );
 		}
 
+		if ( isset( $assoc_args['create_type_directory'] ) ) {
+			$exporter->set_create_type_directory( true );
+		}
+
 		/* translators: %s: destination directory for export */
 		WP_CLI::line( sprintf( __( 'Exporting to: %s', 'gatsby-exporter' ), $directory ) );
 

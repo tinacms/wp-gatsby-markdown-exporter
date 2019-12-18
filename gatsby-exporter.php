@@ -96,6 +96,13 @@ if ( defined( 'WP_CLI' ) && WP_CLI ) {
 				'optional'    => true,
 				'description' => 'If DOMDocument should not use the blog_charset for encoding.',
 			),
+			array(
+				'type'        => 'flag',
+				'name'        => 'create_type_directory',
+				'optional'    => true,
+				'description' => 'If post type directories should be created.',
+
+			),
 		),
 	);
 	WP_CLI::add_command( 'gatsby-export', 'Gatsby_Exporter_CLI', $command_info );
@@ -254,6 +261,10 @@ function gatsby_export_prepare_exporter( $exporter ) {
 
 	if ( isset( $_POST['skip_original_images'] ) ) {
 		$exporter->set_original_images( false );
+	}
+
+	if ( isset( $_POST['create_type_directory'] ) ) {
+		$exporter->set_create_type_directory( true );
 	}
 }
 

@@ -16,11 +16,9 @@ Want to build real-time editing into your Gatsby site? Checkout [TinaCMS](https:
 
 ## Usage
 
-After downloading and enabling the plugin, click "Export to Gatsby" from the WordPress admin sidebar.
-
-A zip file of Markdown posts and associated images will be downloaded after submitting the form.
-
-After extracting the files from the export zip, you can place the files in the content directory of the Gatsby site.
+1. Download plugin and enable it, then click "Export to Gatsby" from the WordPress admin sidebar.
+2. Submit the form to download a zip file with exported content.
+3. Place the unzipped files in the content directory of the Markdown based site.
 
 > Reminder: always keep a backup of the WordPress database and files in case your export doesn't work as expected!
 
@@ -84,6 +82,7 @@ All CLI arguments are optional.
 |`--skip_copy_uploads`|flag, skips copying WordPress uploads to the export
 |`--skip_original_images`|flag, skips the use of original dimension images
 |`--skip_enforce_charset`|flag, skips use of blog_charset for the XML charset
+|`--create_type_directory`|flag, creates directories based on post type
 
 ## Hooks
   The following hooks can be implemented in a plugin to modify the behaviour of the exporter:

@@ -108,6 +108,12 @@
 		</div>
 
 		<div class="form-field">
+			<label id="create_type_directory_label" for="create_type_directory"><?php print esc_html__( 'Create post type directories' ); ?></label>
+			<input type="checkbox" id="create_type_directory" name="create_type_directory" aria-labelledby="create_type_directory_label" aria-describedby="create_type_directory_desc">
+			<small id="create_type_directory_desc" class="form-block"><?php print esc_html__( 'Create a directory for each post type in the export' ); ?></small>
+		</div>
+
+		<div class="form-field">
 			<label id="skip_copy_uploads_label" for="skip_copy_uploads"><?php print esc_html__( 'Skip copying uploads' ); ?></label>
 			<input type="checkbox" id="skip_copy_uploads" name="skip_copy_uploads" aria-labelledby="skip_copy_uploads_label" aria-describedby="skip_copy_uploads_desc">
 			<small id="skip_copy_uploads_desc" class="form-block"><?php print esc_html__( 'WordPress uploaded media will not be copied to the export.' ); ?></small>
