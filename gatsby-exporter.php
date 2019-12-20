@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name:     WordPress to Gatsby Exporter
+ * Plugin Name:     Gatsby Exporter
  * Plugin URI:      https://github.com/tinacms/wp-gatsby-exporter
  * Description:     Export WordPress content to Markdown for GatsbyJS
  * Author:          Mitch MacKenzie
@@ -115,7 +115,7 @@ add_action( 'current_screen', 'gatsby_export_download' );
  * Admin menu callback. Add menu page for plugin.
  */
 function gatsby_export_admin_menu() {
-	add_menu_page( __( 'Export to Gatsby' ), __( 'Export to Gatsby' ), 'manage_options', 'gatsby-export', 'gatsby_export_admin_form' );
+	add_menu_page( __( 'Export to Gatsby', 'gatsby-exporter' ), __( 'Export to Gatsby', 'gatsby-exporter' ), 'manage_options', 'gatsby-export', 'gatsby_export_admin_form' );
 }
 
 /**
