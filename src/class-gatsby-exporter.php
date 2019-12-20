@@ -412,7 +412,9 @@ class Gatsby_Exporter {
 		// Convert to array.
 		if ( count( $this->fields_to_array ) ) {
 			foreach ( $this->fields_to_array as $array_field ) {
-				$meta [ $array_field ] = array( $meta[ $array_field ] );
+				if ( isset( $meta [ $array_field ] ) ) {
+					$meta [ $array_field ] = array( $meta[ $array_field ] );
+				}
 			}
 		}
 

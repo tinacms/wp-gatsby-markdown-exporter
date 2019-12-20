@@ -141,7 +141,7 @@ function gatsby_export_download() {
 		return;
 	}
 
-	if (  isset( $_POST['zip_exporter'] ) && wp_verify_nonce( $_POST['zip_exporter'], 'gatsby_export' ) ) {
+	if ( isset( $_POST['zip_exporter'] ) && wp_verify_nonce( $_POST['zip_exporter'], 'gatsby_export' ) ) {
 		gatsby_export_admin_export();
 	}
 }
@@ -230,22 +230,24 @@ function gatsby_export_prepare_exporter( $exporter ) {
 	}
 
 	if ( isset( $_POST['fields_to_markdown'] ) ) {
-		$markdown_fields = preg_split( '/\r\n|\r|\n/', $_POST['fields_to_markdown'] );
+		$markdown_fields = array_filter( preg_split( '/\r\n|\r|\n/', $_POST['fields_to_markdown'] ) );
 		$exporter->set_fields_to_markdown( $markdown_fields );
 	}
 
 	if ( isset( $_POST['fields_to_exclude'] ) ) {
-		$exclude_fields = preg_split( '/\r\n|\r|\n/', $_POST['fields_to_exclude'] );
+		$exclude_fields = array_filter( preg_split( '/\r\n|\r|\n/', $_POST['fields_to_exclude'] ) );
 		$exporter->set_excluded_front_matter( $exclude_fields );
 	}
 
 	if ( isset( $_POST['remap_fields'] ) ) {
 		$remap_fields = array();
-		$sets         = preg_split( '/\r\n|\r|\n/', $_POST['remap_fields'] );
+		$sets         = array_filter( preg_split( '/\r\n|\r|\n/', $_POST['remap_fields'] ) );
 		foreach ( $sets as $set ) {
-			$remap                             = explode( ',', $set );
-			$remap_fields[ trim( $remap[0] ) ] = trim( $remap[1] );
-			$exporter->set_remap_fields( $remap_fields );
+			$remap = explode( ',', $set );
+			if ( count( $remap ) === 2 ) {
+				$remap_fields[ trim( $remap[0] ) ] = trim( $remap[1] );
+				$exporter->set_remap_fields( $remap_fields );
+			}
 		}
 	}
 
