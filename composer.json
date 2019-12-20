@@ -1,5 +1,5 @@
 {
-    "name": "tinacms/wp-gatsby-exporter",
+    "name": "tinacms/wp-gatsby-markdown-exporter",
     "type": "wordpress-plugin",
     "license": "GPL-3.0-or-later",
     "description": "Export WordPress content to Markdown for GatsbyJS.",

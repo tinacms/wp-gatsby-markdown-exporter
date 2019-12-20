@@ -1,16 +1,16 @@
 <?php
 /**
- * Tests for GatsbyExporter.
+ * Tests for GatsbyMarkdownExporter.
  *
- * @package    GatsbyExporter
+ * @package    GatsbyMarkdownExporter
  */
 
 use PHPUnit\Framework\TestCase;
 
 /**
- * Class GatsbyExporterTest
+ * Class GatsbyMarkdownExporterTest
  */
-class GatsbyExporterTest extends TestCase {
+class GatsbyMarkdownExporterTest extends TestCase {
 
 	/**
 	 * Test: get_original_image().

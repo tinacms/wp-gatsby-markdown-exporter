@@ -7,7 +7,7 @@
         convertWarningsToExceptions="true"
         >
     <testsuites>
-        <testsuite name="gatsby-exporter">
+        <testsuite name="gatsby-markdown-exporter">
             <directory prefix="test-" suffix=".php">./tests/</directory>
         </testsuite>
     </testsuites>
