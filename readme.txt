@@ -2,7 +2,7 @@
 Contributors: mitchmac
 Tags: gatsby, markdown, jamstack, export
 Requires at least: 4.6
-Tested up to: 5.3
+Tested up to: 5.3.2
 Requires PHP: 5.6
 Stable: trunk
 License: GPLv3 or later
