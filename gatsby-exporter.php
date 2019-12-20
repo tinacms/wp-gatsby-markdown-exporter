@@ -137,12 +137,11 @@ function gatsby_export_admin_form() {
  * Handle form submission.
  */
 function gatsby_export_download() {
-
 	if ( ! current_user_can( 'manage_options' ) ) {
 		return;
 	}
 
-	if ( isset( $_POST['gatsby-export'] ) ) { // phpcs:disable WordPress.Security.NonceVerification
+	if (  isset( $_POST['zip_exporter'] ) && wp_verify_nonce( $_POST['zip_exporter'], 'gatsby_export' ) ) {
 		gatsby_export_admin_export();
 	}
 }
@@ -292,7 +291,6 @@ function gatsby_export_create_zip( $source, $destination ) {
 			$zip->addFile( $file, substr( realpath( $file ), strlen( $source ) ) );
 		}
 	}
-	// @TODO: error handling
 
 	$zip->close();
 }

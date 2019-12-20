@@ -125,7 +125,4 @@
 			<small id="skip_original_images_desc" class="form-block"><?php print esc_html__( 'Use images that have been already resized by WordPress, rather than originals.', 'gatsby-exporter' ); ?></small>
 		</div>
 	</fieldset>
-
-	<input type="hidden" value="1" name="gatsby-export">
-
 </form>
