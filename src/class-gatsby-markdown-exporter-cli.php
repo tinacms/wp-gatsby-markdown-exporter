@@ -6,9 +6,9 @@
  */
 
 /**
- * Class Gatsby_Exporter_CLI
+ * Class Gatsby_Markdown_Exporter_CLI
  */
-class Gatsby_Exporter_CLI extends WP_CLI_Command {
+class Gatsby_Markdown_Exporter_CLI extends WP_CLI_Command {
 	/**
 	 * Invoke command.
 	 *
@@ -40,7 +40,7 @@ class Gatsby_Exporter_CLI extends WP_CLI_Command {
 			WP_CLI::error( 'The target directory cannot be written to' );
 		}
 
-		$exporter = new Gatsby_Exporter( $directory );
+		$exporter = new Gatsby_Markdown_Exporter( $directory );
 
 		if ( isset( $assoc_args['post_types'] ) ) {
 			$exporter->set_post_types( array_map( 'trim', explode( ',', $assoc_args['post_types'] ) ) );

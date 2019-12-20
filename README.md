@@ -89,11 +89,11 @@ All CLI arguments are optional.
 
 |Hook|Notes|
 |--|--|
-|`gatsby_exporter_posts`|array of the post ids to be exported
-|`gatsby_exporter_query_options`|array of query options for the posts to be exported database query
-|`gatsby_exporter_post_html_body`|string of the post's HTML body
-|`gatsby_exporter_post_converted_body`|string of the post's body after conversion to Markdown
-|`gatsby_exporter_post_meta`|array of the post's meta fields that will become front matter fields
+|`gatsby_markdown_exporter_posts`|array of the post ids to be exported
+|`gatsby_markdown_exporter_query_options`|array of query options for the posts to be exported database query
+|`gatsby_markdown_exporter_post_html_body`|string of the post's HTML body
+|`gatsby_markdown_exporter_post_converted_body`|string of the post's body after conversion to Markdown
+|`gatsby_markdown_exporter_post_meta`|array of the post's meta fields that will become front matter fields
 
 ## Roadmap
 

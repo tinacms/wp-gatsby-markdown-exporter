@@ -105,7 +105,7 @@ if ( defined( 'WP_CLI' ) && WP_CLI ) {
 			),
 		),
 	);
-	WP_CLI::add_command( 'gatsby-markdown-export', 'Gatsby_Exporter_CLI', $command_info );
+	WP_CLI::add_command( 'gatsby-markdown-export', 'Gatsby_Markdown_Exporter_CLI', $command_info );
 }
 
 add_action( 'admin_menu', 'gatsby_export_admin_menu' );
@@ -170,7 +170,7 @@ function gatsby_export_admin_export() {
 	$wp_filesystem->mkdir( $directory );
 	$directory = trailingslashit( $directory );
 
-	$exporter = new Gatsby_Exporter( $directory );
+	$exporter = new Gatsby_Markdown_Exporter( $directory );
 
 	gatsby_export_prepare_exporter( $exporter );
 
