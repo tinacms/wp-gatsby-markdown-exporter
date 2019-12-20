@@ -1,14 +1,14 @@
 <?php
 /**
- * Plugin Name:     Gatsby Exporter
- * Plugin URI:      https://github.com/tinacms/wp-gatsby-exporter
+ * Plugin Name:     Gatsby Markdown Exporter
+ * Plugin URI:      https://github.com/tinacms/wp-gatsby-markdown-exporter
  * Description:     Export WordPress content to Markdown for GatsbyJS
  * Author:          Mitch MacKenzie
  * Author URI:      https://www.tinacms.org
- * Text Domain:     gatsby-exporter
+ * Text Domain:     gatsby-markdown-exporter
  * Version:         0.1.0
  *
- * @package         GatsbyExporter
+ * @package         GatsbyMarkdownExporter
  */
 
 /**
@@ -105,7 +105,7 @@ if ( defined( 'WP_CLI' ) && WP_CLI ) {
 			),
 		),
 	);
-	WP_CLI::add_command( 'gatsby-export', 'Gatsby_Exporter_CLI', $command_info );
+	WP_CLI::add_command( 'gatsby-markdown-export', 'Gatsby_Exporter_CLI', $command_info );
 }
 
 add_action( 'admin_menu', 'gatsby_export_admin_menu' );
@@ -115,7 +115,7 @@ add_action( 'current_screen', 'gatsby_export_download' );
  * Admin menu callback. Add menu page for plugin.
  */
 function gatsby_export_admin_menu() {
-	add_menu_page( __( 'Export to Gatsby', 'gatsby-exporter' ), __( 'Export to Gatsby', 'gatsby-exporter' ), 'manage_options', 'gatsby-export', 'gatsby_export_admin_form' );
+	add_menu_page( __( 'Export to Gatsby', 'gatsby-markdown-exporter' ), __( 'Export to Gatsby', 'gatsby-markdown-exporter' ), 'manage_options', 'gatsby-markdown-export', 'gatsby_export_admin_form' );
 }
 
 /**
@@ -181,7 +181,7 @@ function gatsby_export_admin_export() {
 		$exported = $exporter->export_next();
 	}
 
-	$zip_file = get_temp_dir() . 'wp-gatsby-exporter.zip';
+	$zip_file = get_temp_dir() . 'wp-gatsby-markdown-exporter.zip';
 	gatsby_export_create_zip( $directory, $zip_file );
 
 	ob_end_clean();
@@ -193,7 +193,7 @@ function gatsby_export_admin_export() {
 /**
  * Prepare the exporter object with form values.
  *
- * @param GatsbyExporter $exporter the initialized exporter.
+ * @param GatsbyMarkdownExporter $exporter the initialized exporter.
  */
 function gatsby_export_prepare_exporter( $exporter ) {
 	if ( ! isset( $_POST['zip_exporter'] ) || ! wp_verify_nonce( $_POST['zip_exporter'], 'gatsby_export' ) ) {
@@ -304,7 +304,7 @@ function gatsby_export_create_zip( $source, $destination ) {
  */
 function gatsby_export_send_zip( $zip ) {
 	header( 'Content-Type: application/zip' );
-	header( 'Content-Disposition: attachment; filename=wp-gatsby-exporter.zip' );
+	header( 'Content-Disposition: attachment; filename=wp-gatsby-markdown-exporter.zip' );
 	header( 'Content-Length: ' . filesize( $zip ) );
 	flush();
 	// phpcs:disable WordPress.WP.AlternativeFunctions.file_system_read_readfile

@@ -20,12 +20,12 @@ before_deploy:
 - rm -rf .git
 - composer install --no-dev
 - rm composer.lock
-- zip -r wp-gatsby-exporter.zip .
+- zip -r wp-gatsby-markdown-exporter.zip .
 
 deploy:
   - provider: releases
     api_key: $GH_TOKEN
-    file: wp-gatsby-exporter.zip
+    file: wp-gatsby-markdown-exporter.zip
     skip_cleanup: true
     overwrite: true
     on:

@@ -2,7 +2,7 @@
 /**
  * Exporter class.
  *
- * @package    GatsbyExporter
+ * @package    GatsbyMarkdownExporter
  */
 
 use League\HTMLToMarkdown\HtmlConverter;

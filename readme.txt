@@ -1,4 +1,4 @@
-=== Gatsby Exporter ===
+=== Gatsby Markdown Exporter ===
 Contributors: mitchmac
 Tags: gatsby, markdown, jamstack, export
 Requires at least: 4.6
@@ -55,7 +55,7 @@ If you're just getting started with Gatsby, we recommend experimenting with a Ma
 
     yarn install && gatsby develop
 
-Then copy your exported WordPress Markdown into the `content` directory or point the wp gatsby-export command at the content directory.
+Then copy your exported WordPress Markdown into the `content` directory or point the wp gatsby-markdown-export command at the content directory.
 
   Want to port your WordPress or HTML theme to Gatsby? Checkout [Porting an HTML Site to Gatsby](https://www.gatsbyjs.org/docs/porting-an-html-site-to-gatsby/) for tips.
 
@@ -65,7 +65,7 @@ The command line functionality uses WP-CLI to interact with WordPress. [WP-CLI i
 
 Once it's installed, you can export content to a directory like this:
 
-    wp gatsby-export --directory=/example/gatsby-starter/src/content
+    wp gatsby-markdown-export --directory=/example/gatsby-starter/src/content
 
 All CLI arguments are optional.
 

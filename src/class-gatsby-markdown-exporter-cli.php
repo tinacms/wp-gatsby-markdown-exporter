@@ -2,7 +2,7 @@
 /**
  * CLI class.
  *
- * @package    GatsbyExporter
+ * @package    GatsbyMarkdownExporter
  */
 
 /**
@@ -97,15 +97,15 @@ class Gatsby_Exporter_CLI extends WP_CLI_Command {
 		}
 
 		/* translators: %s: destination directory for export */
-		WP_CLI::line( sprintf( __( 'Exporting to: %s', 'gatsby-exporter' ), $directory ) );
+		WP_CLI::line( sprintf( __( 'Exporting to: %s', 'gatsby-markdown-exporter' ), $directory ) );
 
 		$exporter->prepare();
 		$total_posts = $exporter->get_post_count();
 
 		/* translators: %d: number of posts that will be exported */
-		WP_CLI::line( sprintf( __( 'Total content count to export: %d', 'gatsby-exporter' ), $total_posts ) );
+		WP_CLI::line( sprintf( __( 'Total content count to export: %d', 'gatsby-markdown-exporter' ), $total_posts ) );
 
-		$progress = \WP_CLI\Utils\make_progress_bar( __( 'Exporting content', 'gatsby-exporter' ), $total_posts );
+		$progress = \WP_CLI\Utils\make_progress_bar( __( 'Exporting content', 'gatsby-markdown-exporter' ), $total_posts );
 
 		for ( $i = 0; $i < $total_posts; $i++ ) {
 
@@ -113,7 +113,7 @@ class Gatsby_Exporter_CLI extends WP_CLI_Command {
 
 			if ( ! is_null( $exported['exception'] ) && $exported['exception']->getMessage() === 'Invalid HTML was provided' ) {
 				/* translators: %s: file that was not converted to Markdown  */
-				WP_CLI::warning( sprintf( __( 'The Markdown converter encountered invalid HTML and could not convert the content at: %s', 'gatsby-exporter' ), $exported['destination'] ) );
+				WP_CLI::warning( sprintf( __( 'The Markdown converter encountered invalid HTML and could not convert the content at: %s', 'gatsby-markdown-exporter' ), $exported['destination'] ) );
 			}
 
 			$progress->tick();
