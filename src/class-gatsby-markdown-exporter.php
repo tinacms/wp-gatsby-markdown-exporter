@@ -10,9 +10,9 @@ use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\Yaml\Yaml;
 
 /**
- * Class Gatsby_Exporter
+ * Class Gatsby_Markdown_Exporter
  */
-class Gatsby_Exporter {
+class Gatsby_Markdown_Exporter {
 	/**
 	 * Export destination directory.
 	 *
@@ -259,7 +259,7 @@ class Gatsby_Exporter {
 		}
 		$body = $doc->saveHTML();
 
-		$body = apply_filters( 'gatsby_exporter_post_html_body', $body );
+		$body = apply_filters( 'gatsby_markdown_exporter_post_html_body', $body );
 
 		// Crude removal of unwanted tags.
 		$body      = str_replace( $xml_encoding . '<html><body>', '', $body );
@@ -273,7 +273,7 @@ class Gatsby_Exporter {
 			$converted_body = $body;
 		}
 
-		$converted_body = apply_filters( 'gatsby_exporter_post_converted_body', $converted_body );
+		$converted_body = apply_filters( 'gatsby_markdown_exporter_post_converted_body', $converted_body );
 
 		$content = "---\n" . $yaml . "---\n" . $converted_body;
 
@@ -428,7 +428,7 @@ class Gatsby_Exporter {
 			}
 		}
 
-		$meta = apply_filters( 'gatsby_exporter_post_meta', $meta );
+		$meta = apply_filters( 'gatsby_markdown_exporter_post_meta', $meta );
 		return $meta;
 	}
 
@@ -584,12 +584,12 @@ class Gatsby_Exporter {
 			'post_status' => $this->post_status,
 		);
 
-		$query_options = apply_filters( 'gatsby_exporter_query_options', $query_options );
+		$query_options = apply_filters( 'gatsby_markdown_exporter_query_options', $query_options );
 
 		$query = new WP_Query( $query_options );
 		$posts = $query->posts;
 
-		$posts = apply_filters( 'gatsby_exporter_posts', $posts );
+		$posts = apply_filters( 'gatsby_markdown_exporter_posts', $posts );
 		return $posts;
 	}
 
