@@ -5,23 +5,30 @@ Want to build real-time editing into your Gatsby site? Checkout [TinaCMS](https:
 
 [![travis ci build status](https://travis-ci.org/tinacms/wp-gatsby-exporter.svg?branch=master)](https://travis-ci.org/tinacms/wp-gatsby-exporter)
 
+![WordPress to Gatsby Exporter and TinaCMS](docs/wp-gatsby-exporter-tina.jpg)
+
 ## Features
 
   - Move WordPress content to Gatsby-friendly Markdown.
-  - Remap and restructure exported fields via CLI options.
-  - Avoid PHP timeouts by using the command line with WP-CLI (included).
-  - Export progress bar (great for large sites)!
-  - Customize the export using the available [command line options](#Options).
+  - Customize the export! Remap and restructure exported fields.
+  - CLI: Avoid PHP timeouts by using the command line with WP-CLI.
+  - CLI: Export progress bar (great for large sites)!
 
 ## Usage
 
-    ./vendor/bin/wp gatsby-export --directory=/example/gatsby-starter/src/content
+1. Download plugin and enable it, then click "Export to Gatsby" from the WordPress admin sidebar.
+2. Submit the form to download a zip file with exported content.
+3. Place the unzipped files in the content directory of the Markdown based site.
+
+> Reminder: always keep a backup of the WordPress database and files in case your export doesn't work as expected!
+
+Checkout the [WP-CLI command](#command-line-usage) to run the export from your command line to avoid PHP timeouts!
 
 ## Installation Methods (choose one)
 ### Download zip file (Easiest)
 Download the [latest release](https://github.com/tinacms/wp-gatsby-exporter/releases/latest/download/wp-gatsby-exporter.zip) and unzip the file into wp-content/plugins.
 
-### Composer require (Recommended)
+### Composer require
   Make sure you have [Composer installed](https://getcomposer.org/doc/00-intro.md) and navigate to the WordPress site directory, then:
 
     composer require tinacms/wp-gatsby-exporter
@@ -35,7 +42,7 @@ Or clone this repository into wp-content/plugins, then navigate to the `wp-gatsb
 Activate "WordPress to Gatsby Exporter" from the WordPress admin.
 Or from the plugin's directory:
 
-    ./vendor/bin/wp plugin activate wp-gatsby-exporter
+    wp plugin activate wp-gatsby-exporter
 
 ## Working with Gatsby
   If you're just getting started with Gatsby, we recommend experimenting with a Markdown based Gatsby starter like [Tina Grande](https://github.com/tinacms/tina-starter-grande). Installation is as easy as:
@@ -50,7 +57,13 @@ Or from the plugin's directory:
 Then copy your exported WordPress Markdown into the `content` directory or point the wp gatsby-export command at the content directory.
 
   Want to port your WordPress or HTML theme to Gatsby? Checkout [Porting an HTML Site to Gatsby](https://www.gatsbyjs.org/docs/porting-an-html-site-to-gatsby/) for tips.
-## Options
+## Command Line Usage
+
+The command line functionality uses WP-CLI to interact with WordPress. [WP-CLI is easy to install](https://wp-cli.org/#installing) if you haven't already.
+
+Once it's installed, you can export content to a directory like this:
+
+    wp gatsby-export --directory=/example/gatsby-starter/src/content
 
 All CLI arguments are optional.
 
@@ -69,6 +82,7 @@ All CLI arguments are optional.
 |`--skip_copy_uploads`|flag, skips copying WordPress uploads to the export
 |`--skip_original_images`|flag, skips the use of original dimension images
 |`--skip_enforce_charset`|flag, skips use of blog_charset for the XML charset
+|`--create_type_directory`|flag, creates directories based on post type
 
 ## Hooks
   The following hooks can be implemented in a plugin to modify the behaviour of the exporter:

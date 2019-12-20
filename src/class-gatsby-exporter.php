@@ -113,6 +113,13 @@ class Gatsby_Exporter {
 	protected $fields_to_array = array();
 
 	/**
+	 * Create directories for each post type.
+	 *
+	 * @var bool
+	 */
+	protected $create_type_directory = false;
+
+	/**
 	 * The Markdown to HTML converter object.
 	 *
 	 * @var HtmlConverter
@@ -172,10 +179,12 @@ class Gatsby_Exporter {
 	 */
 	protected function prepare_directories() {
 		global $wp_filesystem;
+		WP_Filesystem();
 
-		// @TODO: should this be removed for permalinks/slugs to work?
-		foreach ( $this->post_types as $type ) {
-			$wp_filesystem->mkdir( $this->directory . $type );
+		if ( $this->create_type_directory ) {
+			foreach ( $this->post_types as $type ) {
+				$wp_filesystem->mkdir( $this->directory . $type );
+			}
 		}
 
 		if ( $this->copy_uploads ) {
@@ -205,7 +214,11 @@ class Gatsby_Exporter {
 
 		$post = get_post( $post_id );
 
-		$destination = get_post_type( $post ) . '/' . $this->get_file_name( $post );
+		if ( $this->create_type_directory ) {
+			$destination = get_post_type( $post ) . '/' . $this->get_file_name( $post );
+		} else {
+			$destination = $this->get_file_name( $post );
+		}
 
 		$front_matter = $this->get_front_matter( $post, $destination );
 		$yaml         = Yaml::dump( $front_matter, 2, 4, Yaml::DUMP_EMPTY_ARRAY_AS_SEQUENCE );
@@ -331,7 +344,7 @@ class Gatsby_Exporter {
 	protected function write_file( $content, $destination ) {
 		global $wp_filesystem;
 
-		$wp_filesystem->mkdir( dirname( $destination ) );
+		wp_mkdir_p( dirname( $destination ) );
 		$wp_filesystem->put_contents( $destination, $content );
 	}
 
@@ -545,6 +558,15 @@ class Gatsby_Exporter {
 	 */
 	public function set_fields_to_array( $fields ) {
 		$this->fields_to_array = $fields;
+	}
+
+	/**
+	 * If post type directories should be created.
+	 *
+	 * @param bool $create if directories should be created.
+	 */
+	public function set_create_type_directory( $create ) {
+		$this->create_type_directory = $create;
 	}
 
 	/**
