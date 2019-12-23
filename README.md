@@ -1,4 +1,4 @@
-# WordPress to Gatsby Markdown Exporter
+# WP Gatsby Markdown Exporter
 A command line WordPress plugin to export WordPress content to Markdown for use with [GatsbyJS](https://www.gatsbyjs.org/).
 
 Want to build real-time editing into your Gatsby site? Checkout [TinaCMS](https://tinacms.org/)!

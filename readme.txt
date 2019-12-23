@@ -1,4 +1,4 @@
-=== Gatsby Markdown Exporter ===
+=== WP Gatsby Markdown Exporter ===
 Contributors: mitchmac
 Tags: gatsby, markdown, jamstack, export
 Requires at least: 4.6
