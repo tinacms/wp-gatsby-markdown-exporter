@@ -20,6 +20,7 @@ before_deploy:
 - rm -rf .git
 - composer install --no-dev
 - rm composer.lock
+- rm -rf vendor/**/**/bin && rm -rf vendor/bin && rm -rf vendor/**/**/Tests
 - zip -r wp-gatsby-markdown-exporter.zip .
 
 deploy:

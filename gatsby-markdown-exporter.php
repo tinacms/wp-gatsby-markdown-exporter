@@ -3,7 +3,7 @@
  * Plugin Name:     WP Gatsby Markdown Exporter
  * Plugin URI:      https://github.com/tinacms/wp-gatsby-markdown-exporter
  * Description:     Export WordPress content to Markdown for GatsbyJS
- * Author:          Mitch MacKenzie
+ * Author:          TinaCMS
  * Author URI:      https://www.tinacms.org
  * Text Domain:     gatsby-markdown-exporter
  * Version:         0.1.0
