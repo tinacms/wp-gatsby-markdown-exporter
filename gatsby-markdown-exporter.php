@@ -79,6 +79,12 @@ if ( defined( 'WP_CLI' ) && WP_CLI ) {
 				'optional'    => true,
 			),
 			array(
+				'type'        => 'assoc',
+				'name'        => 'include_private_fields',
+				'description' => 'Private post meta fields to include (they start with _).',
+				'optional'    => true,
+			),
+			array(
 				'type'        => 'flag',
 				'name'        => 'skip_original_images',
 				'optional'    => true,
@@ -129,6 +135,17 @@ function gatsby_export_admin_form() {
 	$post_status = get_post_stati();
 
 	// @TODO: check requirements: ziparchiver, etc
+
+	$private_fields = '';
+
+	if ( is_plugin_active( 'wordpress-seo/wp-seo.php' ) ) {
+		$private_fields .= '_yoast_wpseo_primary_category
+_yoast_wpseo_focuskw
+_yoast_wpseo_linkdex
+_yoast_wpseo_title
+_yoast_wpseo_metadesc
+_yoast_wpseo_content_score';
+	}
 
 	include_once dirname( __FILE__ ) . '/src/admin.php';
 }
@@ -266,6 +283,11 @@ function gatsby_export_prepare_exporter( $exporter ) {
 
 	if ( isset( $_POST['create_type_directory'] ) ) {
 		$exporter->set_create_type_directory( true );
+	}
+
+	if ( isset( $_POST['private_fields'] ) ) {
+		$private_fields = array_filter( preg_split( '/\r\n|\r|\n/', $_POST['private_fields'] ) );
+		$exporter->set_included_private_post_meta( $private_fields );
 	}
 }
 
