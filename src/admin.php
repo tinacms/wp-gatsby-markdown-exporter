@@ -108,6 +108,12 @@
 		</div>
 
 		<div class="form-field">
+			<label id="private_fields_label" for="private_fields" class="form-block"><?php print esc_html__( 'Private fields to include', 'gatsby-markdown-exporter' ); ?></label>
+			<textarea id="private_fields" name="private_fields" aria-labelledby="private_fields_label" aria-describedby="private_fields_desc"><?php print esc_textarea( $private_fields ); ?></textarea>
+			<small id="private_fields_desc" class="form-block"><?php print esc_html__( 'One per line. Private fields (their machine name starts with _) to include.', 'gatsby-markdown-exporter' ); ?></small>
+		</div>
+
+		<div class="form-field">
 			<label id="create_type_directory_label" for="create_type_directory"><?php print esc_html__( 'Create post type directories', 'gatsby-markdown-exporter' ); ?></label>
 			<input type="checkbox" id="create_type_directory" name="create_type_directory" aria-labelledby="create_type_directory_label" aria-describedby="create_type_directory_desc">
 			<small id="create_type_directory_desc" class="form-block"><?php print esc_html__( 'Create a directory for each post type in the export', 'gatsby-markdown-exporter' ); ?></small>

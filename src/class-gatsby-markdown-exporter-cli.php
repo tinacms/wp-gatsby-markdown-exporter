@@ -96,6 +96,10 @@ class Gatsby_Markdown_Exporter_CLI extends WP_CLI_Command {
 			$exporter->set_create_type_directory( true );
 		}
 
+		if ( isset( $assoc_args['include_private_fields'] ) ) {
+			$exporter->set_included_private_post_meta( array_map( 'trim', explode( ',', $assoc_args['include_private_fields'] ) ) );
+		}
+
 		/* translators: %s: destination directory for export */
 		WP_CLI::line( sprintf( __( 'Exporting to: %s', 'gatsby-markdown-exporter' ), $directory ) );
 

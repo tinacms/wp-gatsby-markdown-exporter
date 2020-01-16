@@ -81,6 +81,7 @@ All CLI arguments are optional.
 |`--upload_dir=`|directory in the export to copy WordPress uploads|uploads
 |`--remap_fields=`|remap front matter field names, example: find1,replace1;find2,replace2
 |`--fields_to_array=`|convert single value front matter fields to arrays
+|`--include_private_fields=`|private post meta fields to include (they start with _)
 |`--skip_copy_uploads`|flag, skips copying WordPress uploads to the export
 |`--skip_original_images`|flag, skips the use of original dimension images
 |`--skip_enforce_charset`|flag, skips use of blog_charset for the XML charset

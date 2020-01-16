@@ -49,6 +49,13 @@ class Gatsby_Markdown_Exporter {
 	protected $excluded_front_matter = array();
 
 	/**
+	 * Private post meta fields to include (start with _).
+	 *
+	 * @var array
+	 */
+	protected $included_private_post_meta = array();
+
+	/**
 	 * The format for post publish date, see: https://www.php.net/manual/en/function.date.php .
 	 *
 	 * @var string
@@ -387,7 +394,7 @@ class Gatsby_Markdown_Exporter {
 
 		$custom_meta = get_post_custom( $post->ID );
 		foreach ( $custom_meta as $key => $value ) {
-			if ( substr( $key, 0, 1 ) === '_' ) {
+			if ( substr( $key, 0, 1 ) === '_' && ! in_array( $key, $this->included_private_post_meta, true ) ) {
 				continue;
 			}
 			// @TODO: Should these be flattened from arrays? seems to be advanced custom fields thing?
@@ -569,6 +576,15 @@ class Gatsby_Markdown_Exporter {
 	 */
 	public function set_create_type_directory( $create ) {
 		$this->create_type_directory = $create;
+	}
+
+	/**
+	 * Set private post meta fields to include (start with _).
+	 *
+	 * @param array $keys private field keys to include.
+	 */
+	public function set_included_private_post_meta( $keys ) {
+		$this->included_private_post_meta = $keys;
 	}
 
 	/**
