@@ -39,7 +39,8 @@ This means that the markdown converter couldn't convert the referenced post to m
 
 == Changelog ==
 
-Update when released.
+= 0.3.3 =
+* Support including private post meta fields (like Yoast)
 
 == Upgrade Notice ==
 

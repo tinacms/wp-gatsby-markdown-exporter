@@ -6,7 +6,7 @@
  * Author:          TinaCMS
  * Author URI:      https://www.tinacms.org
  * Text Domain:     gatsby-markdown-exporter
- * Version:         0.1.0
+ * Version:         0.3.3
  *
  * @package         GatsbyMarkdownExporter
  */
