@@ -198,7 +198,7 @@ function gatsby_export_admin_export() {
 		$exported = $exporter->export_next();
 	}
 
-	$zip_file = get_temp_dir() . 'wp-gatsby-markdown-exporter.zip';
+	$zip_file = get_temp_dir() . 'wp-gatsby-export-' . sanitize_file_name( get_bloginfo( 'name' ) ) . '.zip';
 	gatsby_export_create_zip( $directory, $zip_file );
 
 	ob_end_clean();
@@ -326,7 +326,7 @@ function gatsby_export_create_zip( $source, $destination ) {
  */
 function gatsby_export_send_zip( $zip ) {
 	header( 'Content-Type: application/zip' );
-	header( 'Content-Disposition: attachment; filename=wp-gatsby-markdown-exporter.zip' );
+	header( 'Content-Disposition: attachment; filename=' . wp_basename( $zip ) );
 	header( 'Content-Length: ' . filesize( $zip ) );
 	flush();
 	// phpcs:disable WordPress.WP.AlternativeFunctions.file_system_read_readfile
